@@ -32,9 +32,12 @@
 	// "postCreateCommand": "dotnet restore",
 
 	// Configure tool-specific properties.
-    "customizations" : {
-        "jetbrains" : {
-            "backend" : "Rider"
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-dotnettools.csdevkit",
+                "EditorConfig.EditorConfig"
+            ]
         }
     },
 
@@ -43,7 +46,8 @@
 
 	"mounts": [
 		"type=bind,source=${localEnv:HOME}/.ssh,target=/home/vscode/.ssh,readonly",
-		"type=bind,source=${localEnv:HOME}/.gitconfig,target=/home/vscode/.gitconfig,readonly"
+		"type=bind,source=${localEnv:HOME}/.gitconfig,target=/home/vscode/.gitconfig,readonly",
+		"type=bind,source=${localEnv:HOME}/Videos/MusicVideos,target=/home/vscode/MusicVideos,consistency=cached"
 	],
 
     "postCreateCommand": "sudo apt update && sudo apt install -y ffmpeg && scripts/get-jellyfin-source.sh $HOME/jellyfin-source",
