@@ -1,0 +1,14 @@
+services:
+  devcontainer:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ../..:/workspaces:cached
+      - $HOME/.ssh:/home/vscode/.ssh:ro
+      - $HOME/.gitconfig:/home/vscode/.gitconfig
+      - jellyfin-source:/jellyfin-source
+    command: sleep infinity
+
+volumes:
+  jellyfin-source:
